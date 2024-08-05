@@ -20,16 +20,6 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(root)/my-banks/page.js"
-    ],
-    "/(root)/transaction-history/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(root)/transaction-history/page.js"
-    ],
-    "/(root)/payment-transfer/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(root)/payment-transfer/page.js"
     ]
   }
 }

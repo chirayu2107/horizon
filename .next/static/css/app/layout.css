@@ -1100,6 +1100,9 @@ video {
 .font-medium {
   font-weight: 500;
 }
+.font-normal {
+  font-weight: 400;
+}
 .font-semibold {
   font-weight: 600;
 }
@@ -1148,6 +1151,10 @@ video {
 .text-gray-600 {
   --tw-text-opacity: 1;
   color: rgb(71 84 103 / var(--tw-text-opacity));
+}
+.text-gray-900 {
+  --tw-text-opacity: 1;
+  color: rgb(16 24 40 / var(--tw-text-opacity));
 }
 .text-pink-700 {
   --tw-text-opacity: 1;
@@ -1270,6 +1277,10 @@ video {
 .text-16 {
   font-size: 16px;
   line-height: 24px;
+}
+.text-24 {
+  font-size: 24px;
+  line-height: 30px;
 }
 .text-26 {
   font-size: 26px;
@@ -1638,6 +1649,23 @@ video {
 /* PlaidLink */
 /* Auth */
 /* Auth Form */
+.auth-form {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 420px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+@media (min-width: 768px) {
+
+  .auth-form {
+    gap: 2rem;
+  }
+}
 .form-item {
   display: flex;
   flex-direction: column;
@@ -2059,6 +2087,14 @@ video {
   }
 }
 
+@media not all and (min-width: 640px) {
+
+  .max-sm\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
 @media (min-width: 640px) {
 
   .sm\:max-w-sm {
@@ -2081,6 +2117,25 @@ video {
 
   .sm\:text-left {
     text-align: left;
+  }
+}
+
+@media (min-width: 768px) {
+
+  .md\:gap-3 {
+    gap: 0.75rem;
+  }
+
+  .md\:gap-8 {
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .lg\:text-36 {
+    font-size: 36px;
+    line-height: 44px;
   }
 }
 
