@@ -3,16 +3,16 @@ import { Inter, IBM_Plex_Serif as IBM_Plex_SerifFont } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
-const IBM_Plex_Serif = Inter ({
+const IBM_Plex_Serif = IBM_Plex_SerifFont ({
   subsets: ['latin'],
   weight: ['400', '700'],
-  variable:'--font-ibm-plex-serif'
-})
+  variable: '--font-ibm-plex-serif'
+});
 
 export const metadata: Metadata = {
-  title: "PrimePay",
+  title: "Horizon",
   description: "Modern Banking Platform",
-  icons:{
+  icons: {
     icon: '/icons/logo.svg'
   }
 };
@@ -24,7 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={'${inter.variable} ${ibmPlexSerif.}'}>{children}</body>
+      <body className={`${inter.variable} ${IBM_Plex_Serif.variable}`}>
+        {children}
+      </body>
     </html>
   );
 }
