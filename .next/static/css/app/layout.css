@@ -885,6 +885,11 @@ video {
   margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
 }
+.space-y-8 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+}
 .overflow-auto {
   overflow: auto;
 }
@@ -1253,6 +1258,22 @@ video {
 }
 .ease-in-out {
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.input-class {
+  border-radius: 0.5rem;
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(208 213 221 / var(--tw-border-opacity));
+  --tw-text-opacity: 1;
+  color: rgb(16 24 40 / var(--tw-text-opacity));
+  font-size: 16px;
+  line-height: 24px;
+}
+.input-class::placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(102 112 133 / var(--tw-text-opacity));
+  font-size: 16px;
+  line-height: 24px;
 }
 .flex-center {
   display: flex;
@@ -1670,6 +1691,21 @@ video {
   display: flex;
   flex-direction: column;
   gap: 0.375rem;
+}
+.form-label {
+  width: 100%;
+  max-width: 280px;
+  font-weight: 500;
+  --tw-text-opacity: 1;
+  color: rgb(52 64 84 / var(--tw-text-opacity));
+  font-size: 14px;
+  line-height: 20px;
+}
+.form-message {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
+  font-size: 12px;
+  line-height: 16px;
 }
 /* Payment Transfer */
 .payment-transfer {
