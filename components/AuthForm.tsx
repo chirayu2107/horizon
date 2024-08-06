@@ -1,8 +1,9 @@
 'use client';
 
 import React, { useState } from 'react'
-import Link from 'next/link'
+import Link from 'next/link';
 import Image from 'next/image'
+import { Loader2 } from 'lucide-react';
 
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -19,14 +20,14 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { Divide } from 'lucide-react';
+import { Divide, Loader } from 'lucide-react';
 import Custominput from './Custominput';
 
 
 
 const AuthForm = ({ type }: {type: string}) => {
     const [user, setUser] = useState(null);
-
+    const [ isLoading, setIsLoading ] = useState(false);
     // 1. Define your form.
   const form = useForm<z.infer<typeof authFormSchema>>
   ({
@@ -41,7 +42,9 @@ const AuthForm = ({ type }: {type: string}) => {
   function onSubmit(values: z.infer<typeof authFormSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
+    setIsLoading(true)
     console.log(values)
+    setIsLoading(false);
   }
 
 
@@ -86,8 +89,59 @@ const AuthForm = ({ type }: {type: string}) => {
         ) : (
     <>
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form onSubmit={form.handleSubmit(onSubmit)} 
+      className="space-y-8">
+      {type === "sign-up" && (
+        <>
+          <Custominput 
+            control={form.control}
+            name="firstName"
+            label="First Name"
+            placeholder="Enter your first name"
+            />
 
+        <Custominput 
+            control={form.control}
+            name="lastName"
+            label="Last Name"
+            placeholder="Enter your last name"
+            />
+
+        <Custominput 
+            control={form.control}
+            name="address1"
+            label="Address"
+            placeholder="Enter your address"
+            />
+
+        <Custominput 
+            control={form.control}
+            name="state"
+            label="State"
+            placeholder="Enter your state"
+            />
+
+        <Custominput 
+            control={form.control}
+            name="postalCode"
+            label="Postal Code"
+            placeholder="ex : 312001"
+            />
+
+        <Custominput 
+            control={form.control}
+            name="dateofBirth"
+            label="Date of Birth"
+            placeholder="dd-mm-yyyy"
+            />
+        <Custominput 
+            control={form.control}
+            name="ssn"
+            label="SSN"
+            placeholder="ex : 1234"
+            />
+        </>
+      )}
         <Custominput 
             control={form.control}
             name="email"
@@ -102,9 +156,35 @@ const AuthForm = ({ type }: {type: string}) => {
             placeholder="Enter your password"
             />
 
-        <Button type="submit">Submit</Button>
+        <div className='flex flex-col gap-4 '>
+        <Button type="submit" disabled = {isLoading} 
+        className='form-btn'>
+        {isLoading ? (
+          <>
+            <Loader2 size = {20}
+            className="animate-spin" /> &nbsp;
+            Loading....
+          </>
+        ) : type === 'sign-in'
+          ? 'Sign In'
+          : 'Sign Up'
+        }
+        </Button>
+        </div>
+        
       </form>
     </Form>
+
+    <footer className='flex justify-center gap-1'>
+      <p className='text-14 font-normal text-gray-600'> {type === 'sign-in'
+          ? "Don't have an account?"
+          : "Already have an account?"
+        }
+        </p>
+        <Link href={type === 'sign-in' ? '/sign-up' : "/sign-in"} className='form-link'>
+        {type === 'sign-up' ? 'Sign in' : "Sign up"}
+        </Link>
+    </footer>
     </>
         )}
     </section>
