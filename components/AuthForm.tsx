@@ -24,7 +24,7 @@ import { Divide, Loader } from 'lucide-react';
 import Custominput from './Custominput';
 import SignUp from '@/app/(auth)/sign-up/page';
 import { useRouter } from 'next/navigation';
-import { signIn } from '@/lib/actions/user.actions';
+import { signIn, signUp } from '@/lib/actions/user.actions';
 
 
 
@@ -50,9 +50,11 @@ const AuthForm = ({ type }: {type: string}) => {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     setIsLoading(true);
+
     try{
       if(type === 'sign-up'){
-        const newUser = await SignUp(data);
+        const newUser = await signUp(data);
+
         setUser(newUser);
           
       }
